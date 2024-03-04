@@ -1,8 +1,30 @@
+@model myCoreProjectNew.Models.User;
+
 @{
     ViewData["Title"] = "User Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome User</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome User
+        @ViewBag.id;
+    </h1>
+    
+    
+<h2>Contact Form</h2>
+
+<form asp-action="SubmitForm"  method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
