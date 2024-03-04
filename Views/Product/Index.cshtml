@@ -1,15 +1,20 @@
 <!-- Views/Product/Index.cshtml -->
 @model List<myCoreProjectNew.Models.Product>
-
+@{
+    ViewData["Title"] = "Product Page";
+}
 <h1>Product List</h1>
+<a asp-action="Create">
+    <button class="btn btn-info">Create New </button>
+</a>
 
-<table>
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Price</th>
-            <th></th>
+            <th> Actions </th>
         </tr>
     </thead>
     <tbody>
@@ -20,12 +25,11 @@
                 <td>@product.Name</td>
                 <td>@product.Price</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@product.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@product.Id"><button class="btn btn-info">Edit</button></a> |
+                    <a asp-action="Delete" asp-route-id="@product.Id"><button class="btn btn-danger"> Delete </button> </a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a asp-action="Create">Create New</a>
